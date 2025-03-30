@@ -1,15 +1,19 @@
 class Solution:
     def addToArrayForm(self, num: List[int], k: int) -> List[int]:
-        carry = k
-        i = len(num) - 1
-        
-        while i >= 0 or carry > 0:
-            if i >= 0:
-                carry += num[i]
-                num[i] = carry % 10
+        i= len(num)
+
+        while i > 0 or k > 0 :
+            if i > 0 and k > 0:
+                k+= num[i-1]
+                num[i-1]= k % 10
+                k//= 10
+                i-= 1
+            elif k > 0:
+                num.insert(0,k % 10)
+                k//= 10
             else:
-                num.insert(0, carry % 10)
-            carry //= 10
-            i -= 1
+                break
+
+        return num    
+    
         
-        return num
