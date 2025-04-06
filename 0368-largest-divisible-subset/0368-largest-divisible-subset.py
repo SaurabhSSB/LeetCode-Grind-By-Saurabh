@@ -4,10 +4,10 @@ class Solution:
             return []
 
         nums.sort()
-        n = len(nums)
-        dp = [1] * n 
-        prev = [-1] * n  
-        max_idx = 0  
+        n: int = len(nums)
+        dp: List[int] = [1] * n 
+        prev: List[int] = [-1] * n  
+        max_idx: int = 0  
 
         for i in range(n):
             for j in range(i):
